@@ -1,10 +1,14 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ServiceCubos } from '../../service/service.cubos';
 import { Router } from '@angular/router';
 import Usuario from '../../models/Usuario';
 import Compra from '../../models/Compra';
 
-@Component({ selector: 'app-perfil', templateUrl: './perfil.component.html', styleUrl: './perfil.component.css' })
+@Component({
+    selector: 'app-perfil', templateUrl: './perfil.component.html', styleUrl: './perfil.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
+})
 export class PerfilComponent implements OnInit {
   public perfil!: Usuario;
   public show: boolean = false;

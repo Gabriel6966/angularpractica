@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -28,7 +28,7 @@ import { ComprarComponent } from './components/comprar/comprar.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ServiceCubos, provideHttpClient()],
+  providers: [ServiceCubos, provideHttpClient(withXhr())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

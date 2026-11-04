@@ -1,9 +1,13 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import Login from '../../models/login';
 import { ServiceCubos } from '../../service/service.cubos';
 import { Router } from '@angular/router';
 
-@Component({ selector: 'app-login', templateUrl: './login.component.html', styleUrl: './login.component.css' })
+@Component({
+    selector: 'app-login', templateUrl: './login.component.html', styleUrl: './login.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
+})
 export class LoginComponent implements OnInit {
   @ViewChild('userName') userName!: ElementRef;
   @ViewChild('password') password!: ElementRef;

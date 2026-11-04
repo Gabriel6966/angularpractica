@@ -1,19 +1,22 @@
-<div class="perfil-container" *ngIf="perfil">
+@if (perfil) {
+  <div class="perfil-container">
     <h1 class="perfil-title">Hola, {{perfil.nombre}}</h1>
     <h2 class="perfil-subtitle">Detalles Email: {{perfil.email}}</h2>
-    
     <div class="button-group">
       <button (click)="historialCompra()" class="btn btn-info">Historial</button>
       <button (click)="comprar()" class="btn btn-success">Comprar</button>
     </div>
-    
-    <div *ngIf="show" class="historial-container">
-      <h3 class="historial-title">Historial de Compras</h3>
-      <ul class="historial-list">
-        <li *ngFor="let com of compras" class="historial-item">
-          ID PEDIDO: {{com.idPedido}}, FECHA: {{com.fechaPedido}}
-        </li>
-      </ul>
-    </div>
+    @if (show) {
+      <div class="historial-container">
+        <h3 class="historial-title">Historial de Compras</h3>
+        <ul class="historial-list">
+          @for (com of compras; track com) {
+            <li class="historial-item">
+              ID PEDIDO: {{com.idPedido}}, FECHA: {{com.fechaPedido}}
+            </li>
+          }
+        </ul>
+      </div>
+    }
   </div>
-  
+}

@@ -6,6 +6,7 @@ import { DetallesComponent } from './components/detalles/detalles.component';
 import { LoginComponent } from './components/login/login.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ComprarComponent } from './components/comprar/comprar.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {

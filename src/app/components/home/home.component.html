@@ -1,11 +1,13 @@
 <div class="card-container">
-  <div class="card" *ngFor="let cub of cubos">
-    <img src="{{cub.imagen}}" class="card-img-top" alt="{{cub.nombre}}">
-    <div class="card-body">
-      <h5 class="card-title">{{cub.nombre}}</h5>
-      <p class="card-text">Precio: {{cub.precio}} €</p>
-      <p class="card-text">Valoración: {{cub.valoracion}}/5</p>
-      <a [routerLink]="['/detalles/', cub.idCubo]" class="btn btn-primary">Detalles</a>
+  @for (cub of cubos; track cub) {
+    <div class="card">
+      <img src="{{cub.imagen}}" class="card-img-top" alt="{{cub.nombre}}">
+      <div class="card-body">
+        <h5 class="card-title">{{cub.nombre}}</h5>
+        <p class="card-text">Precio: {{cub.precio}} €</p>
+        <p class="card-text">Valoración: {{cub.valoracion}}/5</p>
+        <a [routerLink]="['/detalles/', cub.idCubo]" class="btn btn-primary">Detalles</a>
+      </div>
     </div>
-  </div>
+  }
 </div>

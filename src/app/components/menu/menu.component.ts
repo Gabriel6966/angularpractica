@@ -1,8 +1,12 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ServiceCubos } from '../../service/service.cubos';
 import { Router } from '@angular/router';
 
-@Component({ selector: 'app-menu', templateUrl: './menu.component.html', styleUrl: './menu.component.css' })
+@Component({
+    selector: 'app-menu', templateUrl: './menu.component.html', styleUrl: './menu.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
+})
 export class MenuComponent implements OnInit {
   public marcas: Array<string> = [];
   constructor(private _service: ServiceCubos, private _router: Router, private _cdr: ChangeDetectorRef) {}

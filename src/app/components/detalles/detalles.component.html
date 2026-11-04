@@ -1,21 +1,27 @@
-<div class="card-container" *ngIf="cubo">
-  <div class="card" style="width: 18rem;">
-    <img [src]="cubo.imagen" class="card-img-top" alt="{{cubo.nombre}}">
-    <div class="card-body">
-      <h5 class="card-title">{{cubo.nombre}}</h5>
-      <p class="card-text">Precio: {{cubo.precio}} €</p>
-      <p class="card-text">Valoración: {{cubo.valoracion}}/5</p>
+@if (cubo) {
+  <div class="card-container">
+    <div class="card" style="width: 18rem;">
+      <img [src]="cubo.imagen" class="card-img-top" alt="{{cubo.nombre}}">
+      <div class="card-body">
+        <h5 class="card-title">{{cubo.nombre}}</h5>
+        <p class="card-text">Precio: {{cubo.precio}} €</p>
+        <p class="card-text">Valoración: {{cubo.valoracion}}/5</p>
+      </div>
     </div>
+    @if (comentarios.length > 0) {
+      <div class="comentarios-container">
+        <h3 class="comentarios-title">Comentarios</h3>
+        @for (com of comentarios; track com) {
+          <div class="comentario">
+            <p>{{com.comentario}}</p>
+          </div>
+        }
+      </div>
+    }
+    @if (comentarios.length === 0) {
+      <div class="no-comentarios">
+        <p>No hay comentarios disponibles para este cubo.</p>
+      </div>
+    }
   </div>
-  
-  <div class="comentarios-container" *ngIf="comentarios.length > 0">
-    <h3 class="comentarios-title">Comentarios</h3>
-    <div *ngFor="let com of comentarios" class="comentario">
-      <p>{{com.comentario}}</p>
-    </div>
-  </div>
-
-  <div *ngIf="comentarios.length === 0" class="no-comentarios">
-    <p>No hay comentarios disponibles para este cubo.</p>
-  </div>
-</div>
+}

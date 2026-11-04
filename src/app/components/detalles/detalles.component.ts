@@ -1,13 +1,15 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import Cubo from '../../models/Cubo';
 import { ServiceCubos } from '../../service/service.cubos';
 import { ActivatedRoute } from '@angular/router';
 import Comentario from '../../models/Comentario';
 
 @Component({
-  selector: 'app-detalles',
-  templateUrl: './detalles.component.html',
-  styleUrl: './detalles.component.css',
+    selector: 'app-detalles',
+    templateUrl: './detalles.component.html',
+    styleUrl: './detalles.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class DetallesComponent implements OnInit {
   public cubo!: Cubo;

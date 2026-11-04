@@ -1,9 +1,13 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import Cubo from '../../models/Cubo';
 import { ServiceCubos } from '../../service/service.cubos';
 import { ActivatedRoute } from '@angular/router';
 
-@Component({ selector: 'app-cubos', templateUrl: './cubos.component.html', styleUrl: './cubos.component.css' })
+@Component({
+    selector: 'app-cubos', templateUrl: './cubos.component.html', styleUrl: './cubos.component.css',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
+})
 export class CubosComponent implements OnInit {
   public cubos: Array<Cubo> = [];
   constructor(private _service: ServiceCubos, private _activated: ActivatedRoute, private _cdr: ChangeDetectorRef) {}

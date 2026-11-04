@@ -1,29 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" [routerLink]="['/']">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" (click)="cerarSesion()">Cerrar Sesion</button>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Marcas
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
-                        <li *ngFor="let marca of marcas"><a class="dropdown-item" [routerLink]="['/cubos/',marca]">{{marca}}</a></li>
-                    </ul>
-                </li>
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" (click)="cerarSesion()">Cerrar Sesion</button>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Marcas
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            @for (marca of marcas; track marca) {
+              <li><a class="dropdown-item" [routerLink]="['/cubos/',marca]">{{marca}}</a></li>
+            }
+          </ul>
+        </li>
 
-            </ul>
-        </div>
+      </ul>
     </div>
+  </div>
 </nav>
