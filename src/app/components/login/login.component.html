@@ -1,0 +1,21 @@
+
+<div class="container px-4 my-5">
+    <h1 class="text-center" style="margin-bottom: 20px;">LOGIN</h1>
+    <div class="row gx-5 mb-3">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="userName" #userName>
+        </div>
+    </div>
+    <div class="row gx-5 mb-3">
+        <label class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" name="password" #password>
+        </div>
+    </div>
+    <div class="row gx-5">
+        <div class="col-sm-10 offset-sm-2">
+            <button (click)="getToken()" class="btn btn-info btn-custom">Login</button>
+        </div>
+    </div>
+</div>

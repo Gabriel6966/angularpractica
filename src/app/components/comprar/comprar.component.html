@@ -1,0 +1,10 @@
+<div class="buy-container">
+    <label for="selectcubo" class="label">Cubos</label>
+    <select id="selectcubo" #selectcubo class="select">
+      <option *ngFor="let cub of cubos" [value]="cub.idCubo">
+        {{ cub.nombre }}
+      </option>
+    </select>
+    <button (click)="comprar()" class="btn btn-success">Comprar</button>
+  </div>
+  
